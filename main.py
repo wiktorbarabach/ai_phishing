@@ -1,10 +1,10 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report
 import pandas as pd
 
 df = pd.read_csv('dataset_phishing.csv')
-X = df.drop('status', axis=1)
+X = df.drop(['url', 'status'], axis=1)
 y = df['status']
 
 X_train, X_test, y_train, y_test = train_test_split(
